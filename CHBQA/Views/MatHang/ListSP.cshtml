@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CHBQA.Models.SanPham>
+
+@{
+    ViewBag.Title = "Mặt hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center">DANH MỤC SẢN PHẨM:</h2>
+<br />
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            Tên sản phẩm
+        </th>
+        <th style="text-align:center">
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.ten_sp)
+        </td>
+        <td style="text-align:center">
+            <img src="@item.hinh1" width="200" height="200" alt="hinh thumbnail" />
+        </td>
+        <td><li>@Html.ActionLink("Chi tiết", "Detail", new { id = item.id_sp })</li></td>
+    </tr>
+}
+
+</table>

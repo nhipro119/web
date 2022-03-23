@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CHBQA.Models.LoaiHang>
+@{
+    ViewBag.Title = "Loại mặt hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Loại mặt hàng: </h2>
+<br />
+<table style="text-align:center" border="2" width="30%">
+    <tr">
+        <th style="text-align:center">Mã loại</th>
+        <th style="text-align:center">Tên loại  mặt hàng</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id_lh</td>
+            <td>@item.ten_lh</td>
+            <!--
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_lh }) |
+                    @Html.ActionLink("Detail", "Detail", new { id = item.id_lh }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_lh })
+                </td>
+            -->
+        </tr>
+    }
+</table>
+<br />
+<h3>
+    @Html.ActionLink("Về trang chủ", "ListSP", "MatHang")
+</h3>
+<!--@Html.ActionLink("Create", "Create", "Theloai")-->

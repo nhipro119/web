@@ -1,0 +1,55 @@
+﻿@model CHBQA.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Chi Tiết Sản Phẩm:</h2>
+<br />
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_sp)
+        </dd>
+        <br />
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giaban)
+        </dd>
+        <br />
+        <dt>
+            Số lượng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sl)
+        </dd>
+        <br />
+        <dt>
+            Hình 1:
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.hinh1)" alt="hinh thmbnail" style="width: 200px; height: 300px" />
+            <img src="@Html.DisplayFor(model => model.hinh2)" alt="hinh thmbnail" style="width: 200px; height: 300px" />
+            <img src="@Html.DisplayFor(model => model.hinh3)" alt="hinh thmbnail" style="width: 200px; height: 300px" />
+            <img src="@Html.DisplayFor(model => model.hinh4)" alt="hinh thmbnail" style="width: 200px; height: 300px" />
+        </dd>
+
+    </dl>
+</div>
+<h3>
+    @Html.ActionLink("Về trang chủ", "ListSP", "MatHang")
+</h3>
