@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CHBQA.Models.GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <h2>Giỏ hàng</h2>
+</table>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_sp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dThanhtien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width:100px"><img src="@item.hinh1" width="100%" height="100%" /></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten_sp)
+            </td>
+            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.id_sp }))
+            {
+                <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                <td><input type="number" min="1" name="txtSoLg" value="@item.sl" /></td>
+                <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
+                <td>
+                    <a href="@Url.Action("Detail","SanPham",new { id = item.id_sp})"> Chi tiết</a>
+                    @Html.ActionLink("Xóa", "XoaGiohang", new { @id = item.id_sp })
+                </td>
+                <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:left; color:red">
+        <td colspan="2"> Số loại sản phẩm: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="2"> Số lượng sản phẩm: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
+    </tr>
+
+</table>
+<table class="table">
+    <tr style="font-weight:bold; color:blue">
+        <td colspan="5">
+            @Html.ActionLink("Xóa giỏ hàng", "XoaTatCaGioHang")
+        </td>
+        <td style="position:absolute ; right:500px ; ">
+            @Html.ActionLink("Đặt hàng", "Dathang", "GioHang")
+        </td>
+    </tr>
+</table>
+
