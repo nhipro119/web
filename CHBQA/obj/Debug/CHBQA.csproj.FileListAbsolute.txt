@@ -77,3 +77,7 @@ E:\web\Lý thuyết\Đồ án\web\CHBQA\CHBQA\obj\Debug\CHBQA.csproj.CoreCompile
 E:\web\Lý thuyết\Đồ án\web\CHBQA\CHBQA\obj\Debug\CHBQA.csproj.CopyComplete
 E:\web\Lý thuyết\Đồ án\web\CHBQA\CHBQA\obj\Debug\CHBQA.dll
 E:\web\Lý thuyết\Đồ án\web\CHBQA\CHBQA\obj\Debug\CHBQA.pdb
+D:\Workshop\Web\Do_an\final\CHBQA\obj\Debug\CHBQA.csproj.AssemblyReference.cache
+D:\Workshop\Web\Do_an\final\CHBQA\obj\Debug\CHBQA.csproj.CoreCompileInputs.cache
+D:\Workshop\Web\Do_an\final\CHBQA\obj\Debug\CHBQA.dll
+D:\Workshop\Web\Do_an\final\CHBQA\obj\Debug\CHBQA.pdb
