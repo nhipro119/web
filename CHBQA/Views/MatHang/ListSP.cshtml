@@ -19,15 +19,20 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td style="text-align:center">
-            @Html.DisplayFor(modelItem => item.ten_sp)
-        </td>
-        <td style="text-align:center">
-            <img src="@item.hinh1" width="200" height="200" alt="hinh thumbnail" />
-        </td>
-        <td><li>@Html.ActionLink("Chi tiết", "Detail", new { id = item.id_sp })</li></td>
-    </tr>
+<tr>
+    <td style="text-align:center">
+        @Html.DisplayFor(modelItem => item.ten_sp)
+    </td>
+    <td style="text-align:center">
+        <img src="@item.hinh1" width="200" height="200" alt="hinh thumbnail" />
+    </td>
+    <td>
+        <li>@Html.ActionLink("Chi tiết", "Detail", new { id = item.id_sp })</li>
+        <div class="DatMua">
+            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",new { @id = item.id_sp, @strURL = Request.Url.ToString() })">Đặt mua</a>
+        </div>
+    </td>
+</tr>
 }
 
 </table>

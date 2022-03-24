@@ -119,7 +119,7 @@ namespace CHBQA.Controllers
             {
                 CT_DDH ctdh = new CT_DDH();
                 ctdh.id_ddh = dh.id_ddh;
-                ctdh.id_sp = (item.id_sp).ToString();
+                ctdh.id_sp = item.id_sp;
                 ctdh.sl = item.sl;
                 ctdh.dongia = item.giaban;
                 s = data.SanPhams.Single(n => n.id_sp == item.id_sp);
@@ -136,8 +136,5 @@ namespace CHBQA.Controllers
         {
             return View();
         }
-
-        con cho khoa;
-        Nguyen tu moi them 
     }
 }
