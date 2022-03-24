@@ -73,7 +73,7 @@ namespace CHBQA.Controllers
             {
                 ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ListSP", "MatHang");
         }
     }
 }
