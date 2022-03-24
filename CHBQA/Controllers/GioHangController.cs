@@ -136,5 +136,7 @@ namespace CHBQA.Controllers
         {
             return View();
         }
+
+        con cho khoa;
     }
 }
