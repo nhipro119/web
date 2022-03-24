@@ -105,33 +105,33 @@ namespace CHBQA.Controllers
         [HttpPost]
         public ActionResult DatHang(FormCollection collection)
         {
-            //DDH dh = new DDH();
-            //KhachHang kh = (KhachHang)Session["taikhoan"];
-            //SanPham s = new SanPham();
-            //List<GioHang> gh = LayGioHang();
-            //dh.id_kh = kh.id_kh;
-            //dh.tg_tao = DateTime.Now;
-            //dh.sdt_kh = kh.sdt;
-            //dh.email_kh = kh.email;
-            //data.DDHs.InsertOnSubmit(dh);
-            //data.SubmitChanges();
-            //foreach (var item in gh)
-            //{
-            //    CT_DDH ctdh = new CT_DDH();
-            //    ctdh.id_ddh = dh.id_ddh;
-            //    ctdh.id_sp = (item.id_sp).ToString();
-            //    ctdh.sl = item.sl;
-            //    ctdh.dongia = item.giaban;
-            //    s = data.SanPhams.Single(n => n.id_sp == item.id_sp);
-            //    s.sl -= ctdh.sl;
-            //    data.SubmitChanges();
-            //    data.CT_DDHs.InsertOnSubmit(ctdh);
-            //}
-            //data.SubmitChanges();
-            //Session["GioHang"] = null;
+            DDH dh = new DDH();
+            KhachHang kh = (KhachHang)Session["taikhoan"];
+            SanPham s = new SanPham();
+            List<GioHang> gh = LayGioHang();
+            dh.id_kh = kh.id_kh;
+            dh.tg_tao = DateTime.Now;
+            dh.sdt_kh = kh.sdt;
+            dh.email_kh = kh.email;
+            data.DDHs.InsertOnSubmit(dh);
+            data.SubmitChanges();
+            foreach (var item in gh)
+            {
+                CT_DDH ctdh = new CT_DDH();
+                ctdh.id_ddh = dh.id_ddh;
+                ctdh.id_sp = (item.id_sp).ToString();
+                ctdh.sl = item.sl;
+                ctdh.dongia = item.giaban;
+                s = data.SanPhams.Single(n => n.id_sp == item.id_sp);
+                s.sl -= ctdh.sl;
+                data.SubmitChanges();
+                data.CT_DDHs.InsertOnSubmit(ctdh);
+            }
+            data.SubmitChanges();
+            Session["GioHang"] = null;
             return RedirectToAction("XacnhanDonhang", "GioHang");
         }
- 
+  
         public ActionResult XacnhanDonhang()
         {
             return View();
