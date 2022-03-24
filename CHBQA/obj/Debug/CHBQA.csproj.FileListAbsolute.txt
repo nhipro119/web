@@ -155,3 +155,5 @@ C:\Users\PraKo\Desktop\New folder\CHBQA\obj\Debug\CHBQA.csproj.AssemblyReference
 C:\Users\PraKo\Desktop\New folder\CHBQA\obj\Debug\CHBQA.csproj.CoreCompileInputs.cache
 C:\Users\PraKo\Desktop\New folder\CHBQA\obj\Debug\CHBQA.dll
 C:\Users\PraKo\Desktop\New folder\CHBQA\obj\Debug\CHBQA.pdb
+E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\obj\Debug\CHBQA.csproj.AssemblyReference.cache
+E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\obj\Debug\CHBQA.csproj.CoreCompileInputs.cache
