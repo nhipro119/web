@@ -10,7 +10,7 @@ namespace CHBQA.Controllers
     public class NguoiDungController : Controller
     {
         // GET: NguoiDung
-        MyDataDataContext data = new MyDataDataContext();
+  
         [HttpGet]
         public ActionResult DangKy()
         {
