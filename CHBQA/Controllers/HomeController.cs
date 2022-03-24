@@ -12,6 +12,6 @@ namespace CHBQA.Controllers
         {
             return View();
         }
-        fuking thien ngu
+        
     }
 }
