@@ -136,7 +136,5 @@ namespace CHBQA.Controllers
         {
             return View();
         }
-
-        con cho khoa danh chet con cho thien;
     }
 }
