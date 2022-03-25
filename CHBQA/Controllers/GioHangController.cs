@@ -91,12 +91,13 @@ namespace CHBQA.Controllers
             {
                 return RedirectToAction("DangNhap", "NguoiDung");
             }
-
-            if (Session["GioHang"] == null)
+            List<GioHang> lstGioHang = LayGioHang();
+            if (lstGioHang.Count < 1)
             {
+
                 return RedirectToAction("ListSP", "MatHang");
             }
-            List<GioHang> lstGioHang = LayGioHang();
+        
             ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
             ViewBag.Tongsoluongsanpham = TongSoLuongSanPham();
@@ -106,7 +107,7 @@ namespace CHBQA.Controllers
         public ActionResult DatHang(FormCollection collection)
         {
             DDH dh = new DDH();
-            KhachHang kh = (KhachHang)Session["taikhoan"];
+            KhachHang kh = (KhachHang)Session["Taikhoan"];
             SanPham s = new SanPham();
             List<GioHang> gh = LayGioHang();
             dh.id_kh = kh.id_kh;
@@ -115,6 +116,7 @@ namespace CHBQA.Controllers
             dh.email_kh = kh.email;
             data.DDHs.InsertOnSubmit(dh);
             data.SubmitChanges();
+            
             foreach (var item in gh)
             {
                 CT_DDH ctdh = new CT_DDH();

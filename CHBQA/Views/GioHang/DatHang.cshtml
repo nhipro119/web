@@ -19,27 +19,32 @@
                         <br />
                         <br style="margin: 10px" /> Thông tin đặt hàng
                     </p>
-                    <div class="field-set form-group">
-                        <input class="form-control" placeholder="Họ và tên" type="text" name="txtHoDem" value="@kh.ten">
-                        <input class="form-control" placeholder="Số điện thoại" type="text" name="txtHoDem" value="@kh.email">
-                        <input class="form-control" placeholder="Địa chỉ" type="text" name="txtHoDem" value="@kh.diachi">
-                    </div>
-                    <div class="thanhtoan">
-                        <input type="radio" id="thanhtoan" name="thanh-toan" value="cod">
-                        <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-                        <label class="radio-lable" for="thanhtoan">Thanh toán khi nhận hàng(COD)</label><br>
-                        <input type="radio" id="html" name="thanh-toan" value="ck">
-                        <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-                        <label class="radio-lable" for="html">Chuyển khoản</label><br>
-                    </div>
+                    <form method="post">
+                        <div class="field-set form-group">
+                            <input class="form-control" placeholder="Họ và tên" type="text" name="txtHoDem" value="@kh.ten">
+                            <input class="form-control" placeholder="Số điện thoại" type="text" name="txtHoDem" value="@kh.email">
+                            <input class="form-control" placeholder="Địa chỉ" type="text" name="txtHoDem" value="@kh.diachi">
+                        </div>
+                        <div class="thanhtoan">
+                            <input type="radio" id="thanhtoan" name="thanh-toan" value="cod">
+                            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                            <label class="radio-lable" for="thanhtoan">Thanh toán khi nhận hàng(COD)</label><br>
+                            <input type="radio" id="html" name="thanh-toan" value="ck">
+                            <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                            <label class="radio-lable" for="html">Chuyển khoản</label><br>
+                        </div>
 
-                    <div class="hoan-tat">
-                        @Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")
-                        <input style="float:right" type="submit" value="Xác nhận" class="btn btn-success" />
-                    </div>
+                        <div class="hoan-tat">
+                            @Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")
+                            <input style="float:right" type="submit" value="Xác nhận" class="btn btn-success" />
+                        </div>
+                    </form>
+                    
                 </div>
             </div>
             <!--End khu vực thanh toán-->
+
+
             <!--List sản phẩm-->
             <div style="background-color:#fafafa" class="col-2">
                 <div class="col-2-size">
