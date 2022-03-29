@@ -19,6 +19,7 @@ namespace CHBQA.Controllers
         [HttpPost]
         public ActionResult DangKy(FormCollection collection, KhachHang kh)
         {
+            //var id_kh = collection["id_kh"];
             var ten = collection["ten"];
             var taikhoan = collection["taikhoan"];
             var matkhau = collection["matkhau"];
@@ -38,6 +39,7 @@ namespace CHBQA.Controllers
                 }
                 else
                 {
+                    //   kh.id_kh = id_kh;
                     kh.ten = ten;
                     kh.taikhoan = taikhoan;
                     kh.matkhau = matkhau;
@@ -74,6 +76,67 @@ namespace CHBQA.Controllers
                 ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
             return RedirectToAction("ListSP", "MatHang");
+        }
+        public ActionResult ThongTin()
+        {
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            return View(kh);
+        }
+        public ActionResult CSTT()
+        {
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            return View(kh);
+
+
+        }
+        [HttpPost]
+        public ActionResult CSTT(FormCollection fc)
+        {
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            kh.diachi = fc["diachi"];
+            kh.sdt = fc["sdt"];
+            kh.email = fc["email"];
+            data.SubmitChanges();
+            return RedirectToAction("ThongTin");
+        }
+        public ActionResult DMK()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DMK(FormCollection fc)
+        {
+            var mkht = fc["mkht"];
+            var mkm = fc["mkm"];
+            var mkxn = fc["mkxn"];
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            if(String.IsNullOrEmpty(mkxn))
+            {
+                ViewData["nhapmkht"] = "không được bỏ trông mật khẩu hiện tại";
+            }
+            else if(!mkht.Equals(kh.matkhau))
+            {
+                ViewData["mkhtgiongnhau"] = " mật khẩu hiện tại không đúng";
+            }
+            else if(String.IsNullOrEmpty(mkm))
+            {
+                ViewData["nhapmkm"] = "không được bỏ trống mật khẩu mới";
+            }
+            else if(String.IsNullOrEmpty(mkxn))
+            {
+                ViewData["nhapmkxn"] = "không được bỏ trống mật khẩu xác nhận";
+            }
+            else if(!mkm.Equals(mkxn))
+            {
+                ViewData["mkxngiongnhau"] = "mật khẩu mới và mật khẩu xác nhận không giống nhau";
+            }    
+            else
+            {
+                kh.matkhau = mkm;
+                data.SubmitChanges();
+                return RedirectToAction("ThongTin");
+            }
+            return this.DMK();
         }
     }
 }

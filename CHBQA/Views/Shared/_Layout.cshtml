@@ -35,7 +35,7 @@
                     {
 
                         KhachHang kh = (KhachHang)Session["TaiKhoan"];
-                        <li style="font-size:20px; position:absolute; right:270px">@kh.ten</li >
+                        <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(kh.ten,"ThongTin","NguoiDung")</li >
                     }
 
 </ul>
