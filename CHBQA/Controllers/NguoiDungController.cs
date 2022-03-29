@@ -70,10 +70,22 @@ namespace CHBQA.Controllers
             {
                 ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                 Session["Taikhoan"] = kh;
+                
             }
             else
             {
-                ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                QTV qtv = data.QTVs.SingleOrDefault(n => n.taikhoan == taikhoan && n.matkhau == matkhau);
+                if(qtv  != null)
+                {
+                    Session["admin"] = qtv;
+                    return RedirectToAction("ListSPAdmin", "MatHangAdmin");
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                }
+                
+                
             }
             return RedirectToAction("ListSP", "MatHang");
         }

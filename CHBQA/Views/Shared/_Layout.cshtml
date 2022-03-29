@@ -25,18 +25,26 @@
                     <li style="font-size: 20px; right:300px">@Html.ActionLink("Loại mặt hàng", "Index", "LoaiMatHang")</li>
                     <li style="font-size:20px; position:absolute; right:150px">
                         @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")</listyle="font-size:20px">
-                        @if (Session["TaiKhoan"] == null)
+                        @if (Session["TaiKhoan"] == null && Session["admin"] == null)
                         {
                         <li style="font-size:20px; position:absolute; right:270px">
                             @Html.ActionLink("Đăng Nhập", "DangNhap", "NguoiDung")
                         </li>
-                    }
-                    else
-                    {
-
-                        KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                        }
+                        else if (Session["admin"] == null)
+                        {
+                            var tk = Session["TaiKhoan"];
+                            
+                            
+                            KhachHang kh = (KhachHang)Session["TaiKhoan"];
                         <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(kh.ten,"ThongTin","NguoiDung")</li >
-                    }
+                        }
+                        else
+                        {
+                            var tk = (QTV)Session["admin"];
+
+                            <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(tk.taikhoan,"ListSPAdmin","MatHangAdmin")</li>
+                        }
 
 </ul>
             </div>
