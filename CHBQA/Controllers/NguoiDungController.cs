@@ -19,6 +19,7 @@ namespace CHBQA.Controllers
         [HttpPost]
         public ActionResult DangKy(FormCollection collection, KhachHang kh)
         {
+            //var id_kh = collection["id_kh"];
             var ten = collection["ten"];
             var taikhoan = collection["taikhoan"];
             var matkhau = collection["matkhau"];
@@ -38,6 +39,7 @@ namespace CHBQA.Controllers
                 }
                 else
                 {
+                 //   kh.id_kh = id_kh;
                     kh.ten = ten;
                     kh.taikhoan = taikhoan;
                     kh.matkhau = matkhau;
