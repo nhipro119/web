@@ -76,10 +76,10 @@ namespace CHBQA.Controllers
         public ActionResult Edit(int id, FormCollection collection)
         {
             var E_sp = data.SanPhams.First(m => m.id_sp == id);
-            var E_tensp = collection["tensach"];
+            var E_tensp = collection["ten_sp"];
             var E_giaban = Convert.ToInt32(collection["giaban"]);
             var E_gianhap = Convert.ToInt32(collection["gianhap"]);
-            var E_ngaycapnhat = Convert.ToDateTime(collection["ngaycatnhat"]);
+            var E_ngaycapnhat = Convert.ToDateTime(collection["tg_tao"]);
             var E_sl = Convert.ToInt32(collection["sl"]);
             var E_hinh1 = collection["hinh1"];
             var E_hinh2 = collection["hinh2"];
@@ -102,6 +102,7 @@ namespace CHBQA.Controllers
                 E_sp.hinh3 = E_hinh3;
                 E_sp.hinh4 = E_hinh4;
                 UpdateModel(E_sp);
+          //      data.SanPhams.InsertOnSubmit(E_sp);
                 data.SubmitChanges();
                 return RedirectToAction("ListSPAdmin", "MatHangAdmin");
             }
