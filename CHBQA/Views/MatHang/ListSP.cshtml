@@ -4,7 +4,54 @@
     ViewBag.Title = "Mặt hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Loại Sản Phẩm
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("tất cả", "ListSP", new { id = -1 })</li>
+                @{ var data = new CHBQA.Models.MyDataDataContext();
+                    var list_lh = data.LoaiHangs.ToList();}
 
+                @foreach (var sp in list_lh)
+                {
+                    <li>@Html.ActionLink(sp.ten_lh, "ListSP", new { id = sp.id_lh })</li>
+                }
+
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Giá Tiền
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("tất cả", "ListSP", new { gia = -1 })</li>
+                    <li>@Html.ActionLink("dưới 100.000 vnd", "ListSP", new { gia = 0 })</li>
+                    <li>@Html.ActionLink("100.000 vnd - 500.000 vnd", "ListSP", new { gia = 1 })</li>
+                    <li>@Html.ActionLink("500.000 vnd - 1.000.000 vnd", "ListSP", new { gia = 2 })</li>
+                    <li>@Html.ActionLink("trên 1.000.000 vnd", "ListSP", new { gia = 3 })</li>
+                </ul>
+            </a>
+        </li>
+
+    </ul>
+    @using (Html.BeginForm("ListSP", "MatHang", FormMethod.Post))
+    {
+        <form class="navbar-form navbar-left">
+            <div class="input-group">
+                @Html.TextBox("search")
+                <button class="btn btn-primary" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+                
+            </div>
+        </form>
+    }
+
+</div>
 <h2 style="text-align: center">DANH MỤC SẢN PHẨM:</h2>
 <br />
 <table class="table">

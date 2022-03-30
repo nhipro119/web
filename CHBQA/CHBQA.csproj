@@ -207,6 +207,9 @@
     <Content Include="Views\MatHangAdmin\Create.cshtml" />
     <Content Include="Views\MatHangAdmin\Delete.cshtml" />
     <Content Include="Views\MatHangAdmin\Edit.cshtml" />
+    <Content Include="Views\NguoiDung\ThongTin.cshtml" />
+    <Content Include="Views\NguoiDung\CSTT.cshtml" />
+    <Content Include="Views\NguoiDung\DMK.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

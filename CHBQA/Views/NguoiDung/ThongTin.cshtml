@@ -1,0 +1,120 @@
+﻿@model CHBQA.Models.KhachHang
+
+@{
+    ViewBag.Title = "ThongTin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ThongTin</h2>
+<div>
+    @Html.ActionLink("chỉnh sửa thông tin","CSTT")
+</div>
+<div>
+    @Html.ActionLink("đổi mật khẩu","DMK")
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taikhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matkhau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diachi)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.sdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.taikhoan)
+        </td>
+        <td>
+            @Html.Label("* * * * * *")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.diachi)
+        </td>
+        
+    </tr>
+
+
+</table>
+<
+<h3>Các đơn hàng đã mua</h3>
+@{ 
+    var data = new CHBQA.Models.MyDataDataContext();
+    var ddhs = data.DDHs.Where(m => m.id_kh == Model.id_kh);
+}
+<table>
+    <tr>
+        <th>mã </th>
+        <th>Ngày mua</th>
+        <th>Ngày giao</th>
+        <th> trạng thái</th>
+        <th>Địa chỉ</th>
+        <th> email</th>
+        <th>sdt</th>
+        <th>Tổng tiền</th>
+        <th>note</th>
+
+    </tr>
+    <tr>
+        @foreach (var item in ddhs)
+        {
+            <td>@item.id_ddh</td>
+            <td>@item.tg_tao</td>
+            string tt;
+            switch(item.trang_thai)
+            {
+                case 0:
+                    tt = "dang xu ly";
+                    break;
+                case 1:
+                    tt = "da giao";
+                    break;
+                default:
+                    tt = "da bi huy";
+                    break;
+            }
+            string ng;
+            if( item.trang_thai == 1)
+            {
+                ng = item.tg_giao.ToString();
+            }
+            else
+            {
+                ng = "null";
+            }
+            <td>@ng</td>
+            <td>@tt</td>
+            <td>@item.diachi</td>
+            <td>@item.email_kh</td>
+            <td>@item.sdt_kh</td>
+            <td>@item.tong_tien</td>
+            <td>@item.note</td>
+            <td></td>
+        }
+
+    </tr>
+</table>

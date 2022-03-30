@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using CHBQA.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,29 +17,54 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li style="font-size:20px; right:300px">@Html.ActionLink("Trang chủ", "ListSP", "MatHang")</li>
                     <li style="font-size: 20px; right:300px">@Html.ActionLink("Loại mặt hàng", "Index", "LoaiMatHang")</li>
-                    <li style="font-size:20px; position:absolute; right:150px">@Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")</listyle="font-size:20px">
-                    <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink("Đăng Nhập", "DangNhap", "NguoiDung")</listyle="font-size:20px">
-                    <li style="font-size:20px; position:absolute; right:70px">@Html.ActionLink("Admin", "Login", "Admin")</listyle="font-size:20px">
-                </ul>
+                    <li style="font-size:20px; position:absolute; right:150px">
+                        @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")</listyle="font-size:20px">
+                        @if (Session["TaiKhoan"] == null && Session["admin"] == null)
+                        {
+                        <li style="font-size:20px; position:absolute; right:270px">
+                            @Html.ActionLink("Đăng Nhập", "DangNhap", "NguoiDung")
+                        </li>
+                    }
+                    else if (Session["admin"] == null)
+                    {
+                        var tk = Session["TaiKhoan"];
+
+
+                        KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                        <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(kh.ten, "ThongTin", "NguoiDung")</li>
+                    }
+                    else
+                    {
+                        var tk = (QTV)Session["admin"];
+
+                        <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(tk.taikhoan, "ListSPAdmin", "MatHangAdmin")</li>
+                    }
+
+
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        @RenderSection("upload", required: false)
+        @RenderSection("upload2", required: false)
+        @RenderSection("upload3", required: false)
+        @RenderSection("upload4", required: false)
+    </body>
 </html>
