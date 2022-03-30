@@ -1,0 +1,240 @@
+﻿@model CHBQA.Models.SanPham
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Sản phẩm</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ten_sp, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ten_sp, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ten_sp, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.giaban, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.giaban, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.giaban, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.gianhap, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.gianhap, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.gianhap, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.sl, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sl, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sl, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.hinh1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.hinh1, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.hinh1, "", new { @class = "text-danger" })          
+            <input type="file" name="fileUpload" id="fileUpload" accept="image/*" style="display:none;" />
+            <input style="margin-left:300px" type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+            @section upload
+                {
+                <script>
+                    $(function () {
+                        $('#btnUpload').click(function () {
+                            $('#fileUpload').trigger('click');
+                        });
+                    });
+
+                    $('#fileUpload').change(function () {
+                        if (window.FormData !== undefined) {
+                            var fileUpload = $('#fileUpload').get(0);
+                            var files = fileUpload.files;
+                            var formData = new FormData();
+                            formData.append('file', files[0]);
+                            $.ajax(
+                                {
+                                    type: 'POST',
+                                    url: '/MatHangAdmin/ProcessUpload',
+                                    contentType: false,
+                                    processData: false,
+                                    data: formData,
+                                    success: function (urlImage) {
+                                        $('#pictureUpload').attr('src', urlImage);
+                                        $('#hinh1').val(urlImage);
+                                    },
+                                    error: function (err) {
+                                        alert('Error ', err.statusText);
+                                    }
+                                });
+                        }
+                    });
+                </script>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.hinh2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.hinh2, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.hinh2, "", new { @class = "text-danger" })
+            <input type="file" name="fileUpload2" id="fileUpload2" accept="image/*" style="display:none;" />
+            <input style="margin-left:300px" type="button" id="btnUpload2" value="Chọn" class="btn btn-success" />
+            @section upload2
+                {
+                <script>
+                    $(function () {
+                        $('#btnUpload2').click(function () {
+                            $('#fileUpload2').trigger('click');
+                        });
+                    });
+
+                    $('#fileUpload2').change(function () {
+                        if (window.FormData !== undefined) {
+                            var fileUpload = $('#fileUpload2').get(0);
+                            var files = fileUpload.files;
+                            var formData = new FormData();
+                            formData.append('file', files[0]);
+                            $.ajax(
+                                {
+                                    type: 'POST',
+                                    url: '/MatHangAdmin/ProcessUpload',
+                                    contentType: false,
+                                    processData: false,
+                                    data: formData,
+                                    success: function (urlImage) {
+                                        $('#pictureUpload2').attr('src', urlImage);
+                                        $('#hinh2').val(urlImage);
+                                    },
+                                    error: function (err) {
+                                        alert('Error ', err.statusText);
+                                    }
+                                });
+                        }
+                    });
+                </script>
+            }
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.hinh3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.hinh3, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.hinh3, "", new { @class = "text-danger" })
+            <input type="file" name="fileUpload3" id="fileUpload3" accept="image/*" style="display:none;" />
+            <input style="margin-left:300px" type="button" id="btnUpload3" value="Chọn" class="btn btn-success" />
+            @section upload3
+                {
+                <script>
+                    $(function () {
+                        $('#btnUpload3').click(function () {
+                            $('#fileUpload3').trigger('click');
+                        });
+                    });
+
+                    $('#fileUpload3').change(function () {
+                        if (window.FormData !== undefined) {
+                            var fileUpload = $('#fileUpload3').get(0);
+                            var files = fileUpload.files;
+                            var formData = new FormData();
+                            formData.append('file', files[0]);
+                            $.ajax(
+                                {
+                                    type: 'POST',
+                                    url: '/MatHangAdmin/ProcessUpload',
+                                    contentType: false,
+                                    processData: false,
+                                    data: formData,
+                                    success: function (urlImage) {
+                                        $('#pictureUpload3').attr('src', urlImage);
+                                        $('#hinh3').val(urlImage);
+                                    },
+                                    error: function (err) {
+                                        alert('Error ', err.statusText);
+                                    }
+                                });
+                        }
+                    });
+                </script>
+            }
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.hinh4, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.hinh4, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.hinh4, "", new { @class = "text-danger" })
+            <input type="file" name="fileUpload4" id="fileUpload4" accept="image/*" style="display:none;" />
+            <input style="margin-left:300px" type="button" id="btnUpload4" value="Chọn" class="btn btn-success" />
+            @section upload4
+                {
+                <script>
+                    $(function () {
+                        $('#btnUpload4').click(function () {
+                            $('#fileUpload4').trigger('click');
+                        });
+                    });
+
+                    $('#fileUpload4').change(function () {
+                        if (window.FormData !== undefined) {
+                            var fileUpload = $('#fileUpload4').get(0);
+                            var files = fileUpload.files;
+                            var formData = new FormData();
+                            formData.append('file', files[0]);
+                            $.ajax(
+                                {
+                                    type: 'POST',
+                                    url: '/MatHangAdmin/ProcessUpload',
+                                    contentType: false,
+                                    processData: false,
+                                    data: formData,
+                                    success: function (urlImage) {
+                                        $('#pictureUpload4').attr('src', urlImage);
+                                        $('#hinh4').val(urlImage);
+                                    },
+                                    error: function (err) {
+                                        alert('Error ', err.statusText);
+                                    }
+                                });
+                        }
+                    });
+                </script>
+            }
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back", "ListSPAdmin","MatHangAdmin")
+</div>

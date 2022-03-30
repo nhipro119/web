@@ -1,4 +1,4 @@
-E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\bin\CHBQA.dll.config
+﻿E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\bin\CHBQA.dll.config
 E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\bin\CHBQA.dll
 E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\bin\CHBQA.pdb
 E:\web\Lý thuyết\Đồ án\DoAn\CHBQA\bin\roslyn\csc.exe

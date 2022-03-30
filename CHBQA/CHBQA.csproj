@@ -121,12 +121,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Area\AdminController.cs" />
+    <Compile Include="Controllers\Area\LoaiMatHangAdminController.cs" />
+    <Compile Include="Controllers\Area\MatHangAdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiMatHangController.cs" />
     <Compile Include="Controllers\MatHangController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\TemPlateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -404,7 +408,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\LoaiMatHang\Index.cshtml" />
-    <Content Include="Views\MatHang\ListSP.cshtml" />
     <Content Include="Views\MatHang\Detail.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
@@ -419,6 +422,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DangNhap.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\Home\ListSP.cshtml" />
+    <Content Include="Views\MatHang\ListSP.cshtml" />
+    <Content Include="Views\Shop\SapXep.cshtml" />
+    <Content Include="Views\TemPlate\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

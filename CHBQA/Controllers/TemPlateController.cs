@@ -7,9 +7,8 @@ using System.Web.Mvc;
 
 namespace CHBQA.Controllers
 {
-    public class NguoiDungController : Controller
+    public class TemPlateController : Controller
     {
-        // GET: NguoiDung
         MyDataDataContext data = new MyDataDataContext();
         [HttpGet]
         public ActionResult DangKy()
@@ -70,12 +69,12 @@ namespace CHBQA.Controllers
             {
                 ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                 Session["Taikhoan"] = kh;
-                
+
             }
             else
             {
                 QTV qtv = data.QTVs.SingleOrDefault(n => n.taikhoan == taikhoan && n.matkhau == matkhau);
-                if(qtv  != null)
+                if (qtv != null)
                 {
                     Session["admin"] = qtv;
                     return RedirectToAction("ListSPAdmin", "MatHangAdmin");
@@ -84,8 +83,8 @@ namespace CHBQA.Controllers
                 {
                     ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
                 }
-                
-                
+
+
             }
             return RedirectToAction("ListSP", "MatHang");
         }
@@ -122,26 +121,26 @@ namespace CHBQA.Controllers
             var mkm = fc["mkm"];
             var mkxn = fc["mkxn"];
             KhachHang kh = (KhachHang)Session["TaiKhoan"];
-            if(String.IsNullOrEmpty(mkxn))
+            if (String.IsNullOrEmpty(mkxn))
             {
                 ViewData["nhapmkht"] = "không được bỏ trông mật khẩu hiện tại";
             }
-            else if(!mkht.Equals(kh.matkhau))
+            else if (!mkht.Equals(kh.matkhau))
             {
                 ViewData["mkhtgiongnhau"] = " mật khẩu hiện tại không đúng";
             }
-            else if(String.IsNullOrEmpty(mkm))
+            else if (String.IsNullOrEmpty(mkm))
             {
                 ViewData["nhapmkm"] = "không được bỏ trống mật khẩu mới";
             }
-            else if(String.IsNullOrEmpty(mkxn))
+            else if (String.IsNullOrEmpty(mkxn))
             {
                 ViewData["nhapmkxn"] = "không được bỏ trống mật khẩu xác nhận";
             }
-            else if(!mkm.Equals(mkxn))
+            else if (!mkm.Equals(mkxn))
             {
                 ViewData["mkxngiongnhau"] = "mật khẩu mới và mật khẩu xác nhận không giống nhau";
-            }    
+            }
             else
             {
                 kh.matkhau = mkm;
@@ -150,5 +149,6 @@ namespace CHBQA.Controllers
             }
             return this.DMK();
         }
+
     }
 }

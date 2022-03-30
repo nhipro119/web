@@ -16,6 +16,20 @@ namespace CHBQA.Controllers
             var all_sp = from ss in data.SanPhams select ss;
             return View(all_sp);
         }
+        public ActionResult SapXep( int id)
+        {
+            var all_sp = data.SanPhams.Where(b => b.id_lh == id);
+            if(id == -1)
+            {
+                all_sp = data.SanPhams;
+            }
+            return View(all_sp);
+        }
+        public ActionResult SapXepGia(int id)
+        {
+            var all_sp = data.SanPhams.Where(b => b.giaban == id);
+            return View(all_sp);
+        }
         // GET: Shop
         public ActionResult Index()
         {

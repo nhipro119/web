@@ -143,5 +143,9 @@ namespace CHBQA.Controllers
             ViewBag.Tongsoluongsanpham = TongSoLuongSanPham();
             return PartialView();
         }
+        public ActionResult ListSP()
+        {
+            return View();
+        }
     }
 }
