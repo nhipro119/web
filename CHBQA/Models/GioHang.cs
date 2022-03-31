@@ -17,11 +17,11 @@ namespace CHBQA.Models
         [Display(Name = "Giá bán")]
         public int giaban { get; set; }
         [Display(Name = "Số lượng")]
-        public int sl { get; set; }
+        public int iSoluong { get; set; }
         [Display(Name = "Thành tiền")]
         public Double dThanhtien
         {
-            get { return sl * giaban; }
+            get { return iSoluong * giaban; }
         }
 
 
@@ -32,7 +32,7 @@ namespace CHBQA.Models
             ten_sp = sanpham.ten_sp;
             hinh1 = sanpham.hinh1;
             giaban = int.Parse(sanpham.giaban.ToString());
-            sl = 1;
+            iSoluong = 1;
         }
     }
 }

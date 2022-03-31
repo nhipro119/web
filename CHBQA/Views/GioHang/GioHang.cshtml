@@ -1,67 +1,182 @@
 ﻿@model IEnumerable<CHBQA.Models.GioHang>
 @{
     ViewBag.Title = "GioHang";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_TrangChuLayout.cshtml";
 }
 
-<table class="table">
-    <h2>Giỏ hàng</h2>
-</table>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.hinh1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ten_sp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.giaban)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dThanhtien)
-        </th>
-        <th></th>
-    </tr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>Essence - Fashion Ecommerce Template</title>
 
-    @foreach (var item in Model)
-    {
+    <!-- Favicon  -->
+    <link rel="icon" href=@Url.Content("~/Content/essence-master/img/core-img/favicon.ico")>
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href=@Url.Content("~/Content/essence-master/css/core-style.css")>
+    <link rel="stylesheet" href=@Url.Content("~/Content/essence-master/style.css")>
+</head>
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header_area">
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand" href=@Url.Action("ListSP", "MatHang")><img src="~/Content/essence-master/img/core-img/logo.png" alt=""></a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li>
+                                <a href="#">Shop</a>
+                                <div class="megamenu">
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Women's Collection</li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Dresses</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Blouses &amp; Shirts</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>T-shirts</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Rompers</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Bras &amp; Panties</a></li>
+                                    </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Men's Collection</li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>T-Shirts</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Polo</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Shirts</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Jackets</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Trench</a></li>
+                                    </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Kid's Collection</li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Dresses</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Shirts</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>T-shirts</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Jackets</a></li>
+                                        <li><a href=@Url.Content("~/Content/essence-master/shop.html")>Trench</a></li>
+                                    </ul>
+                                    <div class="single-mega cn-col-4">
+                                        <img src="~/Content/essence-master/img/bg-img/bg-6.jpg" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li>@Html.ActionLink("Home", "ListSP", "MatHang")</li>
+                                    <li>@Html.ActionLink("Shop", "ListSP", "Shop")</li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/checkout.html")>Checkout</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/blog.html")>Blog</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/single-blog.html")>Single Blog</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/regular-page.html")>Regular Page</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/contact.html")>Contact</a></li>
+                                </ul>
+                            </li>
+                            <li><a href=@Url.Content("~/Content/essence-master/blog.html")>Blog</a></li>
+                            <li><a href=@Url.Content("~/Content/essence-master/contact.html")>Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+
+            <!-- Header Meta Data -->
+            <div class="header-meta d-flex clearfix justify-content-end">
+                <!-- Search Area -->
+                <div class="search-area">
+                    <form action="#" method="post">
+                        <input type="search" name="search" id="headerSearch" placeholder="Type for search">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                <!-- Favourite Area -->
+                <div class="favourite-area">
+                    <a href="#"><img src="~/Content/essence-master/img/core-img/heart.svg" alt=""></a>
+                </div>
+                <!-- User Login Info -->
+                <div class="user-login-info">
+                    <a href="#"><img src="~/Content/essence-master/img/core-img/user.svg" alt=""></a>
+                </div>
+                <!-- Cart Area -->
+                <div class="cart-area">
+                    <a href="#" id="essenceCartBtn"><img src="~/Content/essence-master/img/core-img/bag.svg" alt=""><span>@ViewBag.TongSoLuongSanPham</span></a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+    <table class="table">
+        <h2>Giỏ hàng</h2>
+    </table>
+    <table class="table">
         <tr>
-            <td style="width:100px"><img src="@item.hinh1" width="100%" height="100%" /></td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ten_sp)
-            </td>
-            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.id_sp }))
-            {
-                <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
-                <td><input type="number" min="1" name="txtSoLg" value="@item.sl" /></td>
-                <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
-                <td>
-                    <a href="@Url.Action("Detail","SanPham",new { id = item.id_sp})"> Chi tiết</a>
-                    @Html.ActionLink("Xóa", "XoaGiohang", new { @id = item.id_sp })
-                </td>
-                <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
-            }
+            <th>
+                @Html.DisplayNameFor(model => model.hinh1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ten_sp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.giaban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iSoluong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dThanhtien)
+            </th>
+            <th></th>
         </tr>
-    }
-    <tr style="font-weight:bold; text-align:left; color:red">
-        <td colspan="2"> Số loại sản phẩm: @ViewBag.Tongsoluongsanpham</td>
-        <td colspan="2"> Số lượng sản phẩm: @ViewBag.Tongsoluong</td>
-        <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
-    </tr>
 
-</table>
-<table class="table">
-    <tr style="font-weight:bold; color:blue">
-        <td colspan="5">
-            @Html.ActionLink("Xóa giỏ hàng", "XoaTatCaGioHang")
-        </td>
-        <td style="position:absolute ; right:500px ; ">
-            @Html.ActionLink("Đặt hàng", "Dathang", "GioHang")
-        </td>
-    </tr>
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width:100px"><img src="@item.hinh1" width="100%" height="100%" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ten_sp)
+                </td>
+                @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.id_sp }))
+                 {
+                    <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                    <td><input type="number" min="1" name="txtSoLg" value="@item.iSoluong" /></td>
+                    <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
+                    <td>
+                        <a href="@Url.Action("Detail","MatHang",new { id = item.id_sp})"> Chi tiết</a>
+                        @Html.ActionLink("Xóa", "XoaGiohang", new { @id = item.id_sp })
+                    </td>
+                    <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
+                 }
+            </tr>
+        }
+        <tr style="font-weight:bold; text-align:left; color:red">
+            <td colspan="2"> Số loại sản phẩm: @ViewBag.Tongsoluongsanpham</td>
+            <td colspan="2"> Số lượng sản phẩm: @ViewBag.Tongsoluong</td>
+            <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
+        </tr>
 
+    </table>
+    <table class="table">
+        <tr style="font-weight:bold; color:blue;text-align:right">
+            <td colspan="5">
+                @Html.ActionLink("Xóa giỏ hàng", "XoaTatCaGioHang")
+            </td>
+            <td colspan="5">
+                @Html.ActionLink("Đặt hàng", "Dathang", "GioHang")
+            </td>
+        </tr>
+    </table>
+</body>

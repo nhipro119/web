@@ -30,26 +30,27 @@
                         <li style="font-size:20px; position:absolute; right:270px">
                             @Html.ActionLink("Đăng Nhập", "DangNhap", "NguoiDung")
                         </li>
-                        }
-                        else if (Session["admin"] == null)
-                        {
-                            var tk = Session["TaiKhoan"];
-                            
-                            
-                            KhachHang kh = (KhachHang)Session["TaiKhoan"];
-                        <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(kh.ten,"ThongTin","NguoiDung")</li >
-                        }
-                        else
-                        {
-                            var tk = (QTV)Session["admin"];
+                    }
+                    else if (Session["admin"] == null)
+                    {
+                        var tk = Session["TaiKhoan"];
 
-                            <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(tk.taikhoan,"ListSPAdmin","MatHangAdmin")</li>
-                        }
 
-</ul>
+                        KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                        <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(kh.ten, "ThongTin", "NguoiDung")</li>
+                    }
+                    else
+                    {
+                        var tk = (QTV)Session["admin"];
+
+                        <li style="font-size:20px; position:absolute; right:270px">@Html.ActionLink(tk.taikhoan, "ListSPAdmin", "MatHangAdmin")</li>
+                    }
+
+
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
         <div class="container body-content">
             @RenderBody()
             <hr />
@@ -61,5 +62,9 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
+        @RenderSection("upload", required: false)
+        @RenderSection("upload2", required: false)
+        @RenderSection("upload3", required: false)
+        @RenderSection("upload4", required: false)
     </body>
 </html>
