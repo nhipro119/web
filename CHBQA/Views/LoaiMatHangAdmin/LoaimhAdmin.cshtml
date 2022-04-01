@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CHBQA.Models.LoaiHang>
+@{
+    ViewBag.Title = "Loại mặt hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Chỉnh sửa thông tin mặt hàng</h2>
+<h4>
+    @Html.ActionLink("Tạo mới", "Create", "LoaiMatHangAdmin")
+</h4>
+<br />
+<table style="text-align:center" border="2" width="30%">
+    <tr">
+        <th style="text-align:center">Mã loại</th>
+        <th style="text-align:center">Tên loại  mặt hàng</th>
+        <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id_lh</td>
+                <td>@item.ten_lh</td>
+                
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id_lh }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_lh })
+                    </td>
+                
+            </tr>
+        }
+</table>
+<br />
+@Html.ActionLink("Đi đến chỉnh sửa sản phẩm", "ListSPAdmin", "MatHangAdmin")

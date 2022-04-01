@@ -121,6 +121,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Area\AdminController.cs" />
+    <Compile Include="Controllers\Area\LoaiMatHangAdminController.cs" />
+    <Compile Include="Controllers\Area\MatHangAdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiMatHangController.cs" />
@@ -195,6 +198,15 @@
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\XacnhanDonhang.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\LoaimhAdmin.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\Create.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\Edit.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\Delete.cshtml" />
+    <Content Include="Views\MatHangAdmin\ListSPAdmin.cshtml" />
+    <Content Include="Views\MatHangAdmin\Create.cshtml" />
+    <Content Include="Views\MatHangAdmin\Delete.cshtml" />
+    <Content Include="Views\MatHangAdmin\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
