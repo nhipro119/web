@@ -52,7 +52,7 @@
                         <tr class="can_phai">
                             <td colspan="2" ; style="font-weight:bold" align="center">Sản phẩm</td>
                             <th>@Html.DisplayNameFor(model => model.giaban)</th>
-                            <th>@Html.DisplayNameFor(model => model.sl)</th>
+                            <th>@Html.DisplayNameFor(model => model.iSoluong)</th>
                             <th>@Html.DisplayNameFor(model => model.dThanhtien)</th>
                         </tr>
                         @foreach (var item in Model)
@@ -63,7 +63,7 @@
                                 @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.id_sp }))
                                 {
                                     <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
-                                    <td>@Html.DisplayFor(modelItem => item.sl)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.iSoluong)</td>
                                     <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
                                 }
                             </tr>

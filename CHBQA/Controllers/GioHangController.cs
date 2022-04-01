@@ -33,7 +33,7 @@ namespace CHBQA.Controllers
             }
             else
             {
-                sanpham.sl++;
+                sanpham.iSoluong++;
                 return Redirect(strURL);
             }
         }
@@ -43,7 +43,7 @@ namespace CHBQA.Controllers
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang != null)
             {
-                tsl = lstGioHang.Sum(n => n.sl);
+                tsl = lstGioHang.Sum(n => n.iSoluong);
             }
             return tsl;
         }
@@ -122,7 +122,7 @@ namespace CHBQA.Controllers
                 CT_DDH ctdh = new CT_DDH();
                 ctdh.id_ddh = dh.id_ddh;
                 ctdh.id_sp = item.id_sp;
-                ctdh.sl = item.sl;
+                ctdh.sl = item.iSoluong;
                 ctdh.dongia = item.giaban;
                 s = data.SanPhams.Single(n => n.id_sp == item.id_sp);
                 s.sl -= ctdh.sl;
@@ -133,7 +133,34 @@ namespace CHBQA.Controllers
             Session["GioHang"] = null;
             return RedirectToAction("XacnhanDonhang", "GioHang");
         }
-  
+
+        public ActionResult CapNhatGioHang(int id, FormCollection collection)
+        {
+            List<GioHang> lstGiohang = LayGioHang();
+            GioHang sanpham = lstGiohang.SingleOrDefault(n => n.id_sp == id);
+            if (sanpham != null)
+            {
+                sanpham.iSoluong = int.Parse(collection["txtSoLg"].ToString());
+            }
+            return RedirectToAction("GioHang");
+        }
+        public ActionResult XoaGiohang(int id)
+        {
+            List<GioHang> lstGiohang = LayGioHang();
+            GioHang sanpham = lstGiohang.SingleOrDefault(n => n.id_sp == id);
+            if(sanpham != null)
+            {
+                lstGiohang.RemoveAll(n => n.id_sp == id);
+                return RedirectToAction("GioHang");
+            }
+            return RedirectToAction("GioHang");
+        }
+        public ActionResult XoaTatCaGioHang()
+        {
+            List<GioHang> lstGiohang = LayGioHang();
+            lstGiohang.Clear();
+            return RedirectToAction("GioHang");
+        }
         public ActionResult XacnhanDonhang()
         {
             return View();

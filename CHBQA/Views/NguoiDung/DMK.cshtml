@@ -1,0 +1,72 @@
+﻿@model CHBQA.Models.KhachHang
+
+@{
+    ViewBag.Title = "DMK";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DMK</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>KhachHang</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <div class="form-group">
+        <label class="control-label col-md-2" for="MatKhauXacNhan">
+            mật khẩu hiện tại:
+        </label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line input-validation-error"
+                   data-val="true" 
+                   id="mkht" name="mkht" type="password" value="" >
+
+            @ViewData["nhapmkht"]
+            @ViewData["mkhtgiongnhau"]
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="MatKhauXacNhan">
+            Mật khẩu mới:
+        </label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line input-validation-error"
+                   data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!"
+                   id="mkm" name="mkm" type="password" value="" aria-
+                   describedby="MatKhauXacNhan-error" aria-invalid="true">
+
+            @ViewData["nhapmkm"]
+            
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="MatKhauXacNhan">
+            Mật khẩu xác nhận:
+        </label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line input-validation-error"
+                   data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!"
+                   id="mkxn" name="mkxn" type="password" value="" aria-
+                   describedby="MatKhauXacNhan-error" aria-invalid="true">
+
+            @ViewData["mkxn"]
+            @ViewData["mkxngiongnhau"]
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
