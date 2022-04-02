@@ -3,147 +3,221 @@
 @{
     ViewBag.Title = "DatHang";
     ViewBag.DatHang = "Đặt Hàng";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_TrangChuLayout.cshtml";
     KhachHang kh = (KhachHang)Session["TaiKhoan"];
 }
 
 
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <!--Khu vực thanh toán-->
-            <div class="col-2">
-                <div class="col-2-size">
-                    <p>
-                        @Html.ActionLink("Giỏ hàng", "Giohang", "GioHang") > Thông tin đặt hàng
-                        <br />
-                        <br style="margin: 10px" /> Thông tin đặt hàng
-                    </p>
-                    <div class="field-set form-group">
-                        <input class="form-control" placeholder="Họ và tên" type="text" name="txtHoDem" value="@kh.ten">
-                        <input class="form-control" placeholder="Số điện thoại" type="text" name="txtHoDem" value="@kh.email">
-                        <input class="form-control" placeholder="Địa chỉ" type="text" name="txtHoDem" value="@kh.diachi">
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header_area">
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand" href=@Url.Action("ListSP", "MatHang")><img src="~/Content/essence-master/img/core-img/logo.png" alt=""></a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                     </div>
-                    <div class="thanhtoan">
-                        <input type="radio" id="thanhtoan" name="thanh-toan" value="cod">
-                        <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-                        <label class="radio-lable" for="thanhtoan">Thanh toán khi nhận hàng(COD)</label><br>
-                        <input type="radio" id="html" name="thanh-toan" value="ck">
-                        <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-                        <label class="radio-lable" for="html">Chuyển khoản</label><br>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li>
+                            <li>@Html.ActionLink("Shop", "ListSP", "Shop")</li>
+                            </li>
+                            <li>
+                                <a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li>@Html.ActionLink("Home", "ListSP", "MatHang")</li>
+                                    <li>@Html.ActionLink("Shop", "ListSP", "Shop")</li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/checkout.html")>Checkout</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/blog.html")>Blog</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/single-blog.html")>Single Blog</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/regular-page.html")>Regular Page</a></li>
+                                    <li><a href=@Url.Content("~/Content/essence-master/contact.html")>Contact</a></li>
+                                </ul>
+                            </li>
+                            <li><a href=@Url.Content("~/Content/essence-master/blog.html")>Blog</a></li>
+                            <li><a href=@Url.Content("~/Content/essence-master/contact.html")>Contact</a></li>
+                        </ul>
                     </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
 
-                    <div class="hoan-tat">
-                        @Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")
-                        <input style="float:right" type="submit" value="Xác nhận" class="btn btn-success" />
-                    </div>
+            <!-- Header Meta Data -->
+            <div class="header-meta d-flex clearfix justify-content-end">
+                <!-- Search Area -->
+                <div class="search-area">
+                    <form action="#" method="post">
+                        <input type="search" name="search" id="headerSearch" placeholder="Type for search">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                <!-- Favourite Area -->
+                <div class="favourite-area">
+                    <a href="#"><img src="~/Content/essence-master/img/core-img/heart.svg" alt=""></a>
+                </div>
+                <!-- User Login Info -->
+                <div class="user-login-info">
+                    <a href="@Url.Action("DangNhap","Home")"><img src="~/Content/essence-master/img/core-img/user.svg" alt=""></a>
+                </div>
+                <!-- Cart Area -->
+                <div class="cart-area">
+                    <a href="@Url.Action("GioHang","GioHang")" id="essenceCartBtn"><img src="~/Content/essence-master/img/core-img/bag.svg" alt=""><span>@ViewBag.TongSoLuongSanPham</span></a>
                 </div>
             </div>
-            <!--End khu vực thanh toán-->
-            <!--List sản phẩm-->
-            <div style="background-color:#fafafa" class="col-2">
-                <div class="col-2-size">
-                    <table border="0" class="table">
-                        <tr class="can_phai">
-                            <td colspan="2" ; style="font-weight:bold" align="center">Sản phẩm</td>
-                            <th>@Html.DisplayNameFor(model => model.giaban)</th>
-                            <th>@Html.DisplayNameFor(model => model.iSoluong)</th>
-                            <th>@Html.DisplayNameFor(model => model.dThanhtien)</th>
-                        </tr>
-                        @foreach (var item in Model)
-                        {
-                            <tr class="text-right">
-                                <td><img src="@item.hinh1" width="40" height="40" /></td>
-                                <td style="text-align:left">@Html.DisplayFor(modelItem => item.ten_sp)</td>
-                                @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.id_sp }))
-                                {
-                                    <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
-                                    <td>@Html.DisplayFor(modelItem => item.iSoluong)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
-                                }
-                            </tr>
-                        }
-                        <tr style="font-weight:bold; text-align:right; color:red">
-                            <td colspan="2" ; align="center">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
-                            <td colspan="2">Sõ lượng sách: @ViewBag.Tongsoluong</td>
-                            <td>
-                                Tổng tiền:
-                                @String.Format("{0:0,0}", @ViewBag.Tongtien)VNĐ
-                            </td>
-                        </tr>
-                    </table>
 
-                </div>
-            </div>
-
-            <!--End list sản phẩm-->
         </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+</body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <!--Khu vực thanh toán-->
+                <div class="col-2" style="min-width:530px">
+                    <div class="col-2-size">
+                        <p>
+                            @Html.ActionLink("Giỏ hàng", "Giohang", "GioHang",new {style = "Color: black" }) > Thông tin đặt hàng
+                            <br />
+                            <br style="margin: 10px" /> Thông tin đặt hàng
+                        </p>
+                        <form method="post">
+                            <div class="field-set form-group">
+                                <input class="form-control" placeholder="Họ và tên" type="text" name="txtHoDem" value="@kh.ten">
+                                <input class="form-control" placeholder="Số điện thoại" type="text" name="txtHoDem" value="@kh.email">
+                                <input class="form-control" placeholder="Địa chỉ" type="text" name="txtHoDem" value="@kh.diachi">
+                            </div>
+                            <div class="thanhtoan">
+                                <input type="radio" id="thanhtoan" name="thanh-toan" value="cod">
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                                <label class="radio-lable" for="thanhtoan">Thanh toán khi nhận hàng(COD)</label><br>
+                                <input type="radio" id="html" name="thanh-toan" value="ck">
+                                <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                                <label class="radio-lable" for="html">Chuyển khoản</label><br>
+                            </div>
 
+                            <div class="hoan-tat">
+                                @Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")
+                                <input style="float:right" type="submit" value="Xác nhận" class="btn btn-success" />
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!--End khu vực thanh toán-->
+                <!--List sản phẩm-->
+                <div style="background-color:#fafafa; min-width:590px" class="col-2">
+                    <div class="col-2-size">
+                        <table border="0" class="table">
+                            <tr class="can_phai">
+                                <td colspan="2" ; style="font-weight:bold" align="center">Sản phẩm</td>
+                                <th>@Html.DisplayNameFor(model => model.giaban)</th>
+                                <th>@Html.DisplayNameFor(model => model.iSoluong)</th>
+                                <th>@Html.DisplayNameFor(model => model.dThanhtien)</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="text-right">
+                                    <td><img src="@item.hinh1" width="40" height="40" /></td>
+                                    <td style="text-align:left">@Html.DisplayFor(modelItem => item.ten_sp)</td>
+                                    @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.id_sp }))
+                                    {
+                                        <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                                        <td>@Html.DisplayFor(modelItem => item.iSoluong)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
+                                    }
+                                </tr>
+                            }
+                            <tr style="font-weight:bold; text-align:right; color:red">
+                                <td colspan="2" ; align="center">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
+                                <td colspan="2">Sõ lượng sách: @ViewBag.Tongsoluong</td>
+                                <td>
+                                    Tổng tiền:
+                                    @String.Format("{0:0,0}", @ViewBag.Tongtien)VNĐ
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+                <!--End list sản phẩm-->
+            </div>
+
+        </div>
     </div>
-</div>
 
 
-<style>
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .header .row {
-        margin-top: 20px;
-    }
-
-    .col-2 {
-        flex-basis: 50%;
-        min-width: 300px;
-    }
-
-
-        .col-2 h1 {
-            font-size: 40px;
-            line-height: 60px;
-            margin: 20px 0;
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
-        .col-2 p {
-            color: #000;
+        .header .row {
+            margin-top: 20px;
         }
 
-    .col-2-size {
-        width: 95%;
-    }
+        .col-2 {
+            flex-basis: 50%;
+            min-width: 300px;
+        }
 
-    .field-set {
-        width: 100%;
-        margin: 0px
-    }
 
-        .field-set input {
-            max-width: 100%;
-            width: 80%;
-            margin: 10px 0px;
-            font-size: 14px;
-            height: 40px;
+            .col-2 h1 {
+                font-size: 40px;
+                line-height: 60px;
+                margin: 20px 0;
+            }
+
+            .col-2 p {
+                color: #000;
+            }
+
+        .col-2-size {
+            width: 95%;
+        }
+
+        .field-set {
+            width: 100%;
+            margin: 0px
+        }
+
+            .field-set input {
+                max-width: 100%;
+                width: 80%;
+                margin: 10px 0px;
+                font-size: 14px;
+                height: 40px;
+                border-radius: 12px;
+            }
+
+        .thanhtoan {
+            box-shadow: 0 0 0 1px #d9d9d9;
             border-radius: 12px;
+            background: #fff;
+            color: #000;
+            width: 80%;
         }
 
-    .thanhtoan {
-        box-shadow: 0 0 0 1px #d9d9d9;
-        border-radius: 12px;
-        background: #fff;
-        color: #000;
-        width: 80%;
-    }
+        .radio-lable {
+            padding: 18px;
+        }
 
-    .radio-lable {
-        padding: 18px;
-    }
-
-    .hoan-tat {
-        width: 80%;
-        margin-top: 20px;
-    }
-</style>
+        .hoan-tat {
+            width: 80%;
+            margin-top: 20px;
+        }
+    </style>
 
 
