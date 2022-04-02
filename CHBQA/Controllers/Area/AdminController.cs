@@ -40,5 +40,17 @@ namespace CHBQA.Controllers.Area
                 return RedirectToAction("Login", "Admin");
             }
         }
+        public ActionResult CheckHD(int id = -1)
+        {
+            
+            var listhd = data.DDHs.ToList();
+            if( id >= 0)
+            {
+                listhd = (from ddh in listhd where ddh.trang_thai == id select ddh).ToList() ;
+
+            }
+            return View(listhd);
+        }
+
     }
 }

@@ -156,7 +156,7 @@
                         <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
                         <td>
                             <a style="color:black" href="@Url.Action("Detail","MatHang",new { id = item.id_sp})"> Chi tiết</a>
-                            @Html.ActionLink("Xóa", "XoaGiohang", null, new { @id = item.id_sp, style = "color: black" })
+                            @Html.ActionLink("Xóa", "XoaGiohang" ,new { @id = item.id_sp})
                         </td>
                         <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
                     }

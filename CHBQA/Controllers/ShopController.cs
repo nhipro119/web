@@ -11,9 +11,25 @@ namespace CHBQA.Controllers
     {
         MyDataDataContext data = new MyDataDataContext();
 
-        public ActionResult ListSP()
+        public ActionResult ListSP(int id = -1)
         {
-            var all_sp = from ss in data.SanPhams select ss;
+            var all_sp = (from ss in data.SanPhams select ss).ToList();
+            if (id == 0)
+            {
+                all_sp = (from sp in all_sp where sp.giaban < 100000 select sp).ToList();
+            }
+            else if (id == 1)
+            {
+                all_sp = (from sp in all_sp where sp.giaban >= 100000 && sp.giaban < 500000 select sp).ToList();
+            }
+            else if (id == 2)
+            {
+                all_sp = (from sp in all_sp where sp.giaban >= 500000 && sp.giaban < 1000000 select sp).ToList();
+            }
+            else if (id == 3)
+            {
+                all_sp = (from sp in all_sp where sp.giaban >= 1000000 select sp).ToList();
+            }
             return View(all_sp);
         }
         public ActionResult SapXep( int id)
@@ -25,9 +41,10 @@ namespace CHBQA.Controllers
             }
             return View(all_sp);
         }
-        public ActionResult SapXepGia(int id)
+        public ActionResult SapXepGia(int id = -1)
         {
-            var all_sp = data.SanPhams.Where(b => b.giaban == id);
+            var all_sp = data.SanPhams.ToList();
+            
             return View(all_sp);
         }
         // GET: Shop

@@ -1,44 +1,73 @@
 ﻿@model CHBQA.Models.KhachHang
 @{
-    ViewBag.Title = "DangNhap";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
-
-<h2>Đăng Nhập</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Login 10</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label class="control-label col-md-2" for="hoten">Tên Đăng Nhập:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.taikhoan, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.taikhoan, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="hoten">Mật khẩu</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.matkhau, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Đăng Nhập" class="btn btn-default"/>
-                <button type="submit" class="btn btn-default" value="Đăng Ký" style="position:absolute; left:130px">@Html.ActionLink("Đăng Ký", "DangKy", "NguoiDung", null, new { style = "color:black ; text-decoration: none"})</button>
+        <link rel="stylesheet" href=@Url.Content("~/Content/login-form-20/css/style.css")>
+
+    </head>
+    <body class="img js-fullheight" style="background-image: url(../Content/login-form-20/images/bg.jpg);">
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Đăng Nhập</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap p-0">
+                            <h3 class="mb-4 text-center">Have an account?</h3>
+                            <form action="#" class="signin-form">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.taikhoan, new { htmlAttributes = new { @class = "form-control", placeholder = "Username", @required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.taikhoan, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.matkhau, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", id = "password-field", type = "password", @required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger; fa fa-fw fa-eye field-icon toggle-password", toggle = "#password-field", })
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary submit px-3">Đăng Nhập</button>
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-50">
+                                        <label class="checkbox-wrap checkbox-primary">
+                                            Remember Me
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="w-50 text-md-right">
+                                        <a href="@Url.Action("DangKy", "Home")" style="color: #fff">Đăng Ký</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <script src="~/Content/login-form-20/js/jquery.min.js"></script>
+        <script src="~/Content/login-form-20/js/popper.js"></script>
+        <script src="~/Content/login-form-20/js/bootstrap.min.js"></script>
+        <script src="~/Content/login-form-20/js/main.js"></script>
+
+    </body>
+</html>
 }
-
-<div>
-    @Html.ActionLink("Về trang chủ", "ListSP", "MatHang")
-</div>
 

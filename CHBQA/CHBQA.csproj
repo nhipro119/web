@@ -426,6 +426,19 @@
     <Content Include="Views\MatHang\ListSP.cshtml" />
     <Content Include="Views\Shop\SapXep.cshtml" />
     <Content Include="Views\TemPlate\DangNhap.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\LoaimhAdmin.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\Create.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\Edit.cshtml" />
+    <Content Include="Views\LoaiMatHangAdmin\Delete.cshtml" />
+    <Content Include="Views\MatHangAdmin\ListSPAdmin.cshtml" />
+    <Content Include="Views\MatHangAdmin\Create.cshtml" />
+    <Content Include="Views\MatHangAdmin\Delete.cshtml" />
+    <Content Include="Views\MatHangAdmin\Edit.cshtml" />
+    <Content Include="Views\NguoiDung\ThongTin.cshtml" />
+    <Content Include="Views\NguoiDung\CSTT.cshtml" />
+    <Content Include="Views\NguoiDung\DMK.cshtml" />
+    <Content Include="Views\Admin\CheckHD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
