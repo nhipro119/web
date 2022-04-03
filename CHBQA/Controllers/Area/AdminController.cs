@@ -40,7 +40,7 @@ namespace CHBQA.Controllers.Area
                 return RedirectToAction("Login", "Admin");
             }
         }
-        public ActionResult CheckHD(int id = -1)
+        public ActionResult CheckHD(int id = 0)
         {
             
             var listhd = data.DDHs.ToList();
