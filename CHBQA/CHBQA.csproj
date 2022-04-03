@@ -237,6 +237,7 @@
     <Content Include="Content\images\aokhabanh.jpg" />
     <Content Include="Content\images\aothun.jpg" />
     <Content Include="Content\images\aothun1.jpg" />
+    <Content Include="Content\images\none.jpg" />
     <Content Include="Content\login-form-20\css\bootstrap.min.css" />
     <Content Include="Content\login-form-20\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="Content\login-form-20\css\bootstrap\mixins\_reset-text.css" />
