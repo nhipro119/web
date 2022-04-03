@@ -42,8 +42,6 @@
                     <div class="classynav">
                         <ul>
                             <li>@Html.ActionLink("Shop", "ListSP", "Shop")</li>                           
-                            <li><a href=@Url.Content("~/Content/essence-master/blog.html")>Blog</a></li>
-                            <li><a href=@Url.Content("~/Content/essence-master/contact.html")>Contact</a></li>
                         </ul>
                     </div>
                     <!-- Nav End -->
@@ -58,10 +56,6 @@
                         <input type="search" name="search" id="headerSearch" placeholder="Type for search">
                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
-                </div>
-                <!-- Favourite Area -->
-                <div class="favourite-area">
-                    <a href="#"><img src="~/Content/essence-master/img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
@@ -179,7 +173,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(../Content/essence-master/img/bg-img/bg-2.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Clothing</a>
+                            <a href="@Url.Action("ListSP","Shop")">Clothing</a>
                         </div>
                     </div>
                 </div>
@@ -187,7 +181,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(../Content/essence-master/img/bg-img/bg-3.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Shoes</a>
+                            <a href="@Url.Action("ListSP","Shop")">Shoes</a>
                         </div>
                     </div>
                 </div>
@@ -195,7 +189,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(../Content/essence-master/img/bg-img/bg-4.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Accessories</a>
+                            <a href="@Url.Action("ListSP","Shop")">Accessories</a>
                         </div>
                     </div>
                 </div>
@@ -213,7 +207,7 @@
                             <div class="cta--text">
                                 <h6>-60%</h6>
                                 <h2>Global Sale</h2>
-                                <a href="#" class="btn essence-btn">Buy Now</a>
+                                <a href="@Url.Action("ListSP","Shop")" class="btn essence-btn">Buy Now</a>
                             </div>
                         </div>
                     </div>
