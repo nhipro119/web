@@ -59,7 +59,18 @@
                 </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <a href="@Url.Action("DangNhap","Home")"><img src="~/Content/essence-master/img/core-img/user.svg" alt=""></a>
+                    @{
+                        if (Session["TaiKhoan"] == null && Session["QTV"] == null)
+                        {
+                            <a href="@Url.Action("DangNhap","NguoiDung")"><img src="~/Content/essence-master/img/core-img/user.svg" alt=""></a>
+                        }
+                        else if (Session["TaiKhoan"] != null)
+                        {
+                            <a href="@Url.Action("ThongTin","NguoiDung")"><img src="~/Content/essence-master/img/core-img/user.svg" alt=""></a>
+                        }
+                        
+                    }
+
                 </div>
                 <!-- Cart Area -->
                 <div class="cart-area">

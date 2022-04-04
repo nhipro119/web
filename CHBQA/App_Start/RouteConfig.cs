@@ -16,7 +16,7 @@ namespace CHBQA
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "NguoiDung", action = "DangNhap", id = UrlParameter.Optional }
+                defaults: new { controller = "MatHang", action = "ListSP", id = UrlParameter.Optional }
             );
         }
     }

@@ -65,11 +65,13 @@ namespace CHBQA.Controllers
         {
             var taikhoan = collection["taikhoan"];
             var matkhau = collection["matkhau"];
-            KhachHang kh = data.KhachHangs.SingleOrDefault(n => n.taikhoan == taikhoan && n.matkhau == matkhau);
-            if (kh != null)
+            var kh = data.KhachHangs.Where(n => n.taikhoan == taikhoan && n.matkhau == matkhau);
+            if (kh.Any() )
             {
                 ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
-                Session["Taikhoan"] = kh;
+                
+
+                Session["Taikhoan"] = kh.First();
                 
             }
             else
