@@ -91,6 +91,12 @@ namespace CHBQA.Controllers
             }
             return RedirectToAction("ListSP", "MatHang");
         }
+        public ActionResult DangXuat()
+        {
+            Session["admin"] = null;
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("ListSP", "MatHang");
+        }
         public ActionResult ThongTin()
         {
             KhachHang kh = (KhachHang)Session["TaiKhoan"];

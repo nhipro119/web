@@ -4,42 +4,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="text-align:center">Thông tin sản phẩm</h2>
-<br />
-<h4>
-    @Html.ActionLink("Tạo mới", "Create", "MatHangAdmin")
-</h4>
-<table class="table">
-    <tr>
-        <th style="text-align:center">
-            Tên sản phẩm
-        </th>
-        <th style="text-align:center">
-            Hình ảnh
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+    <h2 style="text-align:center">Thông tin sản phẩm</h2>
+    <br />
+    <h4>
+        @Html.ActionLink("Tạo mới", "Create", "MatHangAdmin")
+    </h4>
+    <table class="table">
         <tr>
-            <td style="text-align:center">
-                @Html.DisplayFor(modelItem => item.ten_sp)
-            </td>
-            <td style="text-align:center">
-                <img src="@item.hinh1" width="200" height="200" alt="hinh thumbnail" />
-            </td>
-            <td>
-                <li>@Html.ActionLink("Edit", "Edit", new { id = item.id_sp })</li>
-                <li>@Html.ActionLink("Delete", "Delete", new { id = item.id_sp })</li>
-            </td>
+            <th style="text-align:center">
+                Tên sản phẩm
+            </th>
+            <th style="text-align:center">
+                Hình ảnh
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.ten_sp)
+                </td>
+                <td style="text-align:center">
+                    <img src="@item.hinh1" width="200" height="200" alt="hinh thumbnail" />
+                </td>
+                <td>
+                    <li>@Html.ActionLink("Edit", "Edit", new { id = item.id_sp })</li>
+                    <li>@Html.ActionLink("Delete", "Delete", new { id = item.id_sp })</li>
+                </td>
+            </tr>
+        }
 
+<<<<<<< HEAD
 <br />
 <div>
     @Html.ActionLink("Đi đến chỉnh sửa loại mặt hàng", "LoaimhAdmin", "LoaiMatHangAdmin")
 </div>
 
+=======
+    </table>
+
+    <br />
+    <div>
+        @Html.ActionLink("Đi đến chỉnh sửa loại mặt hàng", "LoaimhAdmin", "LoaiMatHangAdmin")
+    </div>
+>>>>>>> 907ea5a8a7af6d5165a53e163095af284c3a1416

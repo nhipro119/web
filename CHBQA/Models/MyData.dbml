@@ -1,44 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CHBQA" Class="MyDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-3KT1Q2M\SQLEXPRESS;Initial Catalog=CHBQA;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CHBQAConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.CT_DDH" Member="CT_DDHs">
-    <Type Name="CT_DDH">
-      <Column Name="id_ddh" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="id_sp" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="sl" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="dongia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DDH" Member="DDHs">
-    <Type Name="DDH">
-      <Column Name="id_ddh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="tong_tien" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="id_kh" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sdt_kh" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="email_kh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="diachi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="tg_tao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="tg_giao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.KhachHang" Member="KhachHangs">
-    <Type Name="KhachHang">
-      <Column Name="id_kh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="sdt" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="taikhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="matkhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="diachi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LoaiHang" Member="LoaiHangs">
-    <Type Name="LoaiHang">
-      <Column Name="id_lh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ten_lh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.QTV" Member="QTVs">
     <Type Name="QTV">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -60,6 +21,45 @@
       <Column Name="hinh2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="hinh3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="hinh4" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiHang" Member="LoaiHangs">
+    <Type Name="LoaiHang">
+      <Column Name="id_lh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ten_lh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="id_kh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sdt" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="taikhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="matkhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DDH" Member="DDHs">
+    <Type Name="DDH">
+      <Column Name="id_ddh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tong_tien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_kh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sdt_kh" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="email_kh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="tg_tao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tg_giao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_DDH" Member="CT_DDHs">
+    <Type Name="CT_DDH">
+      <Column Name="id_ddh" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_sp" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dongia" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

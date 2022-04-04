@@ -32,6 +32,13 @@ namespace CHBQA.Controllers
             }
             return View(all_sp);
         }
+        [HttpPost]
+        public ActionResult ListSP(FormCollection fc)
+        {
+            var search = fc["search"];
+            var listsp = data.SanPhams.Where(sp => sp.ten_sp.Contains(search)).ToList();
+            return View(listsp);
+        }
         public ActionResult SapXep( int id)
         {
             var all_sp = data.SanPhams.Where(b => b.id_lh == id);

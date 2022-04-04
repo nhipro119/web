@@ -114,6 +114,11 @@ namespace CHBQA.Controllers
             dh.tg_tao = DateTime.Now;
             dh.sdt_kh = kh.sdt;
             dh.email_kh = kh.email;
+            double tongtien = 0;
+            tongtien = TongTien();
+            dh.tong_tien = int.Parse(tongtien.ToString());
+            dh.trang_thai = 0;
+            dh.diachi = kh.diachi;
             data.DDHs.InsertOnSubmit(dh);
             data.SubmitChanges();
             
@@ -126,6 +131,7 @@ namespace CHBQA.Controllers
                 ctdh.dongia = item.giaban;
                 s = data.SanPhams.Single(n => n.id_sp == item.id_sp);
                 s.sl -= ctdh.sl;
+                tongtien += (item.iSoluong * item.giaban);
                 data.SubmitChanges();
                 data.CT_DDHs.InsertOnSubmit(ctdh);
             }
