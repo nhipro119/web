@@ -52,7 +52,8 @@
         @Html.LabelFor(model => model.hinh1, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.hinh1, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.hinh1, "", new { @class = "text-danger" })          
+            @Html.ValidationMessageFor(model => model.hinh1, "", new { @class = "text-danger" })     
+            <img src="~/Content/images/none.jpg" id="pictureUpload" style="width: 200px; height: 250px" />
             <input type="file" name="fileUpload" id="fileUpload" accept="image/*" style="display:none;" />
             <input style="margin-left:300px" type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
             @section upload
@@ -97,6 +98,7 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.hinh2, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.hinh2, "", new { @class = "text-danger" })
+            <img src="~/Content/images/none.jpg" id="pictureUpload2" style="width: 200px; height: 250px" />
             <input type="file" name="fileUpload2" id="fileUpload2" accept="image/*" style="display:none;" />
             <input style="margin-left:300px" type="button" id="btnUpload2" value="Chọn" class="btn btn-success" />
             @section upload2
@@ -142,6 +144,7 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.hinh3, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.hinh3, "", new { @class = "text-danger" })
+            <img src="~/Content/images/none.jpg" id="pictureUpload3" style="width: 200px; height: 250px" />
             <input type="file" name="fileUpload3" id="fileUpload3" accept="image/*" style="display:none;" />
             <input style="margin-left:300px" type="button" id="btnUpload3" value="Chọn" class="btn btn-success" />
             @section upload3
@@ -187,6 +190,7 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.hinh4, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.hinh4, "", new { @class = "text-danger" })
+            <img src="~/Content/images/none.jpg" id="pictureUpload4" style="width: 200px; height: 250px" />
             <input type="file" name="fileUpload4" id="fileUpload4" accept="image/*" style="display:none;" />
             <input style="margin-left:300px" type="button" id="btnUpload4" value="Chọn" class="btn btn-success" />
             @section upload4
